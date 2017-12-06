@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mxc.sys.login.entity.SysUser">
+	<sql id="sql">
+		a.id AS "id",
+		a.username AS "userName",
+		a.logname AS "logName",
+		a.password AS "password"
+	</sql>
+	
+	<select id="get" resultType="com.mxc.sys.login.dao.LoginDao">
+		SELECT * FROM sys_user
+		where logname = #{logName}
+	</select>
+	
+	<select id="findList" resultType="com.mxc.sys.login.dao.LoginDao">
+		SELECT 
+			<include refid="sql"/>
+		FROM sys_user
+		<where>
+			<if test="id != null and id !=''">
+				a.id = #{id}
+			</if>
+			<if test="logname != null and logname != ''">
+				a.logname = #{logname}
+			</if>
+		</where>
+	</select>
+	
+</mapper>
