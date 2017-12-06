@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mxc.news.dao.NewsDao">
+	
+	<sql id="sql">
+		a.id AS "id",
+		a.title AS "title",
+		a.author AS "author",
+		a.competence AS "competence",
+		a.status AS "isStatus",
+		a.isshow AS "isShow",
+		a.isRecommend AS "isRecommend",
+		a.keywords AS "keywords",
+		a.summary AS "summary",
+		a.content AS "content",
+		(SELECT CASE WHEN COUNT(1)>0 THEN	1 ELSE 0 END FROM collect c WHERE c.newsid = a.id) AS "collect",
+		a.createDate AS "createDate",
+		a.createBy AS "createBy",
+		a.createBy AS "updateDate",
+		a.createBy AS "createBy"
+	</sql>
+	
+	<sql id="leftJoin">
+		LEFT JOIN collect c 
+		ON c.newsid = a.id
+	</sql>
+	
+	<select id="get" resultType="com.mxc.news.entity.News">
+		select
+			<include refid="sql"/>
+		from news a
+		 where a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="com.mxc.news.entity.News">
+		select
+			<include refid="sql"/>
+		from news a
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+		</where>
+			order by a.createDate desc
+	</select>
+	
+	<insert id="save">
+		insert into news(
+			id,
+			title,
+			author,
+			competence,
+			isshow,
+			status,
+			isrecommend,
+			keywords,
+			summary,
+			content,
+			createDate,
+			createBy
+		)value(
+			#{id},
+			#{title},
+			#{author},
+			#{competence},
+			#{isShow},
+			#{isStatus},
+			#{isRecommend},
+			#{keywords},
+			#{summary},
+			#{content},
+			Now(),
+			#{createBy}
+		)
+	</insert>
+	
+	<update id="update">
+		update news set
+			title = #{title},
+			author = #{author},
+			competence = #{competence},
+			isshow = #{isShow},
+			status = #{isStatus},
+			isRecommend = #{isRecommend},
+			keywords = #{keywords},
+			summary = #{summary},
+			content = #{content},
+			updateDate = now(),
+			updateBy = #{updateBy}
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM news WHERE id = #{id}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+
+	<!-- mybatis 可以使用properties来引入外部properties配置文件的内容 resource:引入类路径下的资源 URL：引入网络路径或者磁盘路径下的资源 -->
+	<!-- <properties resource="config.properties"></properties> -->
+
+	<!-- 2、settings包含很多重要的设置项 setting:用来设置每一个设置项 name：设置项名 value：设置项取值 -->
+	<settings>
+		<!-- 驼峰命名 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- 空值处理 -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+		<!-- 自动生成主键 ，自增 --> 
+		<setting name="useGeneratedKeys" value="true"/>
+		<!-- 延时加载 -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
+
+	<!-- 3、typeAliases,别名处理器，可以给我们的java类型起别名 别名不区分大小写 -->
+	<typeAliases>
+
+		<!-- typeAlias:为某个java类型起别名 type:指定要起别名的类型全类名 ；默认别名小写：employees <typeAlias 
+			type="com.eneity.Employee" alias="emp"/> 批量起别名：package:为某个包下的所有类批量起别名 name：指定包名（当前包以及下面所有的后代包的每一个类都起一个默认别名（类名小写）） -->
+
+		<!-- 批量起名的情况下，使用@Alias注解为某个类型指定新的别名 -->
+		<!-- <package name="com.mxc.*.entity"/> -->
+
+	</typeAliases>
+
+	<!-- environments:多种环境，mybatis 可以配置多种环境，default可以指定使用某种环境，可以达到快速切换的目的 environment：配置一个具体的环境信息：必须有两个标签 
+		id：当前环境的唯一表示 transactionManager:事务管理器 type：事务管理器类型：JDBC（JdbcTransactionFactory）|MANAGED(ManagedTransactionFactory) 
+		自定义事务管理器：实现TransactionFactory接口，type指定为全类名 dataSource:数据源 type:数据源类型：UNPOOLED|POOLED|JNDI 
+		自定义数据源：实现DataSourceFactory接口，，type是全类名 -->
+
+	<!-- <environments default="mybatis">
+
+		<environment id="oracle">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${orcl.driver}" />
+				<property name="url" value="${orcl.url}" />
+				<property name="username" value="${orcl.username}" />
+				<property name="password" value="${orcl.password}" />
+			</dataSource>
+		</environment>
+
+		<environment id="mybatis">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<databaseIdProvider type="DB_VENDOR">
+		<property name="MySQL" value="mysql" />
+		<property name="Oracle" value="oracle" />
+	</databaseIdProvider>
+
+	<mappers>
+		<package name="com.mxc.user.dao"/>
+	</mappers> -->
+	
+</configuration>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mxc.sys.collect.dao.CollectDao">
+
+	<sql id="sql">
+		a.id = "id",
+		a.newsid = "newsId",
+		a.userid = "userid"
+	</sql>
+	
+	<sql id="leftJoin">
+		LEFT JOIN news n 
+		ON a.newsid = n.id
+	</sql>
+	
+	<select id="get" resultType="com.mxc.sys.collect.entity.Collect">
+		SELECT
+			<include refid="sql"></include>
+		FORM collect a
+		WHERE a.newsid = #{newsId}
+	</select>
+	
+	<insert id="save">
+		INSERT INTO collect(
+			id,
+			newsid,
+			userid
+		)value(
+			#{id},
+			#{newsId},
+			#{userId}
+		)
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM collect where newsId = #{newsid}
+	</delete>
+
+</mapper>
