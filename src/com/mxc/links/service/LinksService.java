@@ -12,7 +12,7 @@ import com.mxc.links.entity.Links;
 public class LinksService {
 
 	@Autowired
-	LinksDao dao;
+	private LinksDao dao;
 	
 	public List<Links> findList(Links links) {
 		return dao.findList(links);

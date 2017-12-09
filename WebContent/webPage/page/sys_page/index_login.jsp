@@ -27,8 +27,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-3 col-md-6">
-				<form id="inputForm" class="form-horizontal" action="/xiaochaoo/login/checkLogin" method="post">
+				<form id="inputForm" class="form-horizontal" action="<%=basePath%>/login/checkLogin" method="post">
 					<span class="heading">用户登录</span>
+					<div><%=basePath%></div>
 					<div class="form-group">
 						<!-- <input type="email" class="form-control" id="inputEmail3" placeholder="用户名"> -->
 						<input type="text" class="form-control" id="user" name="user" placeholder="用户名" value="admin">

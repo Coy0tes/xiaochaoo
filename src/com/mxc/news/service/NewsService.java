@@ -13,7 +13,7 @@ import com.mxc.news.entity.News;
 public class NewsService {
 
 	@Autowired
-	NewsDao dao;
+	private NewsDao dao;
 	
 	public News get(News news) {
 		return dao.get(news);
