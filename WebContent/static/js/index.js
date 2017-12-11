@@ -66,6 +66,7 @@ layui.config({
 
 	//公告层
 	function showNotice(){
+		alert();
 		layer.open({
 	        type: 1,
 	        title: "系统公告", //不显示标题栏

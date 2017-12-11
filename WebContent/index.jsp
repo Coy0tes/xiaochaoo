@@ -20,21 +20,11 @@
 	<script type="text/javascript" src="<%=basePath%>/static/js/nav.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/static/js/leftNav.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/static/js/index.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/static/js/bodyTab.js"></script>
 	
 	
 	<script type="text/javascript">
-		/* $.ajax({
-			url:"path/sys/index",
-			type: "POST",
-			dataType:"json"
-			success: function(data){
-				console.log(data.path);
-			},error: function(XMLHttpRequest, textStatus, errorThrown){
-				console.log("XMLHttpRequest: "+XMLHttpRequest);
-				console.log("textStatus: "+textStatus);
-				console.log("errorThrown: "+errorThrown);
-			}
-		}); */
+		
 	</script>
 	
 </head>
@@ -100,7 +90,7 @@
 			    		<a href="javascript:;" data-url="<%=basePath%>/webPage/page/user/changePwd.jsp"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
 			    	</li>
 			    	<li class="layui-nav-item" mobile>
-			    		<a href="javascript:;"><i class="iconfont icon-loginout"></i> 退出</a>
+			    		<a href="#"><i class="iconfont icon-loginout"></i> 退出</a>
 			    	</li>
 					<li class="layui-nav-item lockcms" pc>
 						<a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
@@ -108,12 +98,12 @@
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
 							<img src="<%=basePath%>/static/images/face.jpg" class="layui-circle" width="35" height="35">
-							<cite>请叫我马哥</cite>
+							<cite>${sessionScope.login.userName}</cite>
 						</a>
 						<dl class="layui-nav-child">
 							<dd><a href="javascript:;" data-url="webPage/page/user/userInfo.jsp"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
 							<dd><a href="javascript:;" data-url="webPage/page/user/changePwd.jsp"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-							<dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+							<dd><a href="<%=basePath%>/login/outLogin"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>

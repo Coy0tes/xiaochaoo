@@ -6,6 +6,7 @@
 	<sql id="sql">
 		a.id AS "id",
 		a.username AS "userName",
+		a.name AS "name",
 		a.password AS "password"
 	</sql>
 	

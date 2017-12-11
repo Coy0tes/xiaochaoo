@@ -7,7 +7,7 @@ package com.mxc.sys.entity;
 public class User {
 	private String id;
 	private String userName;	// 用户名
-	private String logName;		// 用户登录名
+	private String name;		// 姓名
 	private String password;	// 密码
 	private String userType;	// 用户类型
 	
@@ -17,10 +17,10 @@ public class User {
 	public User() {
 		System.out.println("This is Entity:SysUser------------->");
 	}
-	public User(String userName, String logName, String password, String userType) {
+	public User(String userName, String name, String password, String userType) {
 		super();
 		this.userName = userName;
-		this.logName = logName;
+		this.name = name;
 		this.password = password;
 		this.userType = userType;
 	}
@@ -30,11 +30,11 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getLogName() {
-		return logName;
+	public String getName() {
+		return name;
 	}
-	public void setLogName(String logName) {
-		this.logName = logName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPassword() {
 		return password;
