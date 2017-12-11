@@ -8,15 +8,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>用户登录</title>
-
 <link href="<%=basePath%>/static/sys_page/index_login/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/static/sys_page/index_login/css/zzsc.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>/static/sys_page/index_login/css/index_login.css">
 
 <script type="text/javascript">
+	$(document).ready(function(){
+		// 登录错误返回信息
+		var msg = '${msg}'; 
+		if(msg){
+			$("#errMsg").html("<font style='color:red;font-size:15px'>"+msg+"</font>");
+		}
+	});
 	function doSubmit (){
-		console.log("1233123");
-		console.info($("#inputForm"));
 		$("#inputForm").submit();
 		return false;
 	}
@@ -29,10 +33,10 @@
 			<div class="col-md-offset-3 col-md-6">
 				<form id="inputForm" class="form-horizontal" action="<%=basePath%>/login/checkLogin" method="post">
 					<span class="heading">用户登录</span>
-					<div><%=basePath%></div>
+					<div></div>
 					<div class="form-group">
 						<!-- <input type="email" class="form-control" id="inputEmail3" placeholder="用户名"> -->
-						<input type="text" class="form-control" id="user" name="user" placeholder="用户名" value="admin">
+						<input type="text" class="form-control" id="userName" name="userName" placeholder="用户名" value="admin">
 						<i class="fa fa-user"></i>
 					</div>
 					<div class="form-group help">
@@ -40,6 +44,7 @@
 						<i class="fa fa-lock"></i>
 						<a href="#" class="fa fa-question-circle"></a>
 					</div> 
+					<div id="errMsg"></div>
 					<div class="form-group">
 						<div class="main-checkbox">
 							<input type="checkbox" value="None" id="checkbox1" name="check"/>

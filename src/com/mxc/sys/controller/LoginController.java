@@ -58,23 +58,28 @@ public class LoginController{
      */
 	@RequestMapping(value= {"checkLogin",""})
 	public String checkLogin(User login, Model model, RedirectAttributes redirectAttributes) {
-		login = loginService.findList(login);
+		User user = loginService.findList(login);
 		System.out.println("123123123123");
-		String msg = "";
 		if(login!=null) {
-			model.addAttribute("login", login);
+			if(user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
+				model.addAttribute("login", login);
+			}else {
+				model.addAttribute("msg", "用户名或密码不正确！");
+				return "/webPage/page/sys_page/index_login";
+			}
 		}else {
-			model.addAttribute(msg, "用户名或密码不正确");
-			return "xiaochaoo/webPage/page/sys_page/index_login";
+			model.addAttribute("msg", "用户名不存在");
+			System.out.println("msg");
+			return "/webPage/page/sys_page/index_login";
 		}
-		return "xiaochaoo/index";
+		return "/index";
 	}
 	
 	@RequestMapping(value="outLogin")
 	public String outLogin(HttpSession session) {
 		// 通过session.invalidata()方法来注销当前的session
 		session.invalidate();
-		return "xiaochaoo/webPage/page/sys_page/index_login";
+		return "/webPage/page/sys_page/index_login";
 	}
 
 }
