@@ -15,7 +15,7 @@
 		<!-- 空值处理 -->
 		<setting name="jdbcTypeForNull" value="NULL" />
 		<!-- 自动生成主键 ，自增 --> 
-		<setting name="useGeneratedKeys" value="true"/>
+		<setting name="useGeneratedKeys" value="false"/>
 		<!-- 延时加载 -->
 		<setting name="lazyLoadingEnabled" value="true" />
 		<setting name="aggressiveLazyLoading" value="false" />

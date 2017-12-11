@@ -5,7 +5,7 @@ package com.mxc.sys.entity;
  *
  */
 public class User {
-	
+	private String id;
 	private String userName;	// 用户名
 	private String logName;		// 用户登录名
 	private String password;	// 密码
@@ -48,6 +48,11 @@ public class User {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	
-
 }

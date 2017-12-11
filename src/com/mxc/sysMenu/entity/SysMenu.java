@@ -1,6 +1,7 @@
 package com.mxc.sysMenu.entity;
 
 public class SysMenu {
+	
 	public String id;
 	public String name;
 	public String sort;		// 排序

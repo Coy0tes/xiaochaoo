@@ -12,8 +12,8 @@ import com.alibaba.druid.util.StringUtils;
 import com.mxc.links.entity.Links;
 import com.mxc.links.service.LinksService;
 
-@RequestMapping(value="path/links")
 @Controller
+@RequestMapping(value="path/links")
 public class LinksController {
 
 	@Autowired
