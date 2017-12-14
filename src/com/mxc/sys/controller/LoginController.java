@@ -58,21 +58,24 @@ public class LoginController{
      */
 	@RequestMapping(value= {"checkLogin",""})
 	public String checkLogin(User login, Model model, RedirectAttributes redirectAttributes) {
+		String returnPath = "/index";
 		User user = loginService.findList(login);
 		System.out.println("123123123123");
-		if(login!=null) {
+		if(user!=null) {
 			if(user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
 				model.addAttribute("login", login);
 			}else {
+				returnPath = "/webPage/page/sys_page/index_login";
 				model.addAttribute("msg", "用户名或密码不正确！");
-				return "/webPage/page/sys_page/index_login";
+				return returnPath;
 			}
 		}else {
+			returnPath = "/webPage/page/sys_page/index_login";
 			model.addAttribute("msg", "用户名不存在");
 			System.out.println("msg");
-			return "/webPage/page/sys_page/index_login";
+			return returnPath;
 		}
-		return "/index";
+		return returnPath;
 	}
 	
 	@RequestMapping(value="outLogin")

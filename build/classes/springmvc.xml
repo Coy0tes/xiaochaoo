@@ -7,6 +7,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+	<!-- 3、自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器  -->
 	<context:component-scan base-package="com.mxc.*.controller"></context:component-scan>
 	
 	<!-- 静态资源处理 -->
@@ -14,7 +15,7 @@
 	
 	<!-- 防止因为 <mvc:default-servlet-handler /> 处理静态资源而使其他的资源找不到controller -->
 	<!-- 配置springMVC -->
-    <!-- 1：开启springMVC注解模式 -->
+    <!-- 1：开启springMVC注解模式，就是配置映射器与适配器 -->
     <!-- 简化配置：
          (1)自动注册DefaultAnnotationHandlerMapping，AnnotationMethodHandlerAdapter
          (2)提供一系列：数据绑定，数字和日期的format  @NumberFormat,@DataTimeFormat
@@ -25,11 +26,7 @@
 	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
 	<mvc:default-servlet-handler />
 	
-	
-	<!--配置映射器和适配器-->
-    <!-- <mvc:annotation-driven></mvc:annotation-driven> -->
-
-	<!-- 2：配置jsp显示ViewResolver -->
+	<!-- 2：视图解析器，配置jsp显示ViewResolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> -->
 		<property name="prefix" value="/"></property>
