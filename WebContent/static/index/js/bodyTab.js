@@ -113,7 +113,9 @@ layui.define(["element","jquery"],function(exports){
 	$("body").on("click",".top_tab li",function(){
 		//切换后获取当前窗口的内容
 		var curmenu = '';
-		var menu = JSON.parse(window.sessionStorage.getItem("menu"));
+		var menu = JSON.parse(window.sessionStorage.getItem("menu"));  // 切换窗口时获取当前页面的内容，保存到sessionStorage中
+		console.info($(this).index());
+		console.info(window.sessionStorage.getItem("menu"));
 		curmenu = menu[$(this).index()-1];
 		if($(this).index() == 0){
 			window.sessionStorage.setItem("curmenu",'');

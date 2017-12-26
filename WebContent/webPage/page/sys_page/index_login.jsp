@@ -38,11 +38,12 @@
 						<!-- <input type="email" class="form-control" id="inputEmail3" placeholder="用户名"> -->
 						<input type="text" class="form-control" id="userName" name="userName" placeholder="用户名" value="admin">
 						<i class="fa fa-user"></i>
+						<a href="#" class="fa fa-question-circle"></a>
 					</div>
 					<div class="form-group help">
 						<input type="password" class="form-control" id="password" name="password" placeholder="密码" value="admin">
 						<i class="fa fa-lock"></i>
-						<a href="#" class="fa fa-question-circle"></a>
+						
 					</div> 
 					<div id="errMsg"></div>
 					<div class="form-group">
@@ -52,7 +53,7 @@
 						</div>
 						<span class="text">记住我</span>
 					</div>
-					<button onclick="doSubmit()" class="btn btn-default">立刻登录</button>
+					<button type="submit" onclick="doSubmit()" class="btn btn-default">立刻登录</button>
 				</form>
 			</div>
 		</div>
@@ -61,7 +62,6 @@
 
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
 <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-<p>来源：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人素材</a></p>
 </div>
 </body>
 </html>

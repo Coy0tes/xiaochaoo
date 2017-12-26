@@ -1,8 +1,9 @@
-var $,tab,skyconsWeather;
+var tab;
 // 引入js文件接口
 layui.config({
-	base : "static/js/"
+	base : "/static/index/js/" //你存放新模块的目录，注意，不是layui的模块目录
 }).use(['bodyTab','form','element','layer','jquery'],function(){
+	alert();
 	var form = layui.form,
 		layer = layui.layer,
 		element = layui.element;
@@ -63,10 +64,9 @@ layui.config({
 		addTab($(this));
 		$(this).parent("li").siblings().removeClass("layui-nav-itemed");
 	})
-
+	
 	//公告层
 	function showNotice(){
-		alert();
 		layer.open({
 	        type: 1,
 	        title: "系统公告", //不显示标题栏

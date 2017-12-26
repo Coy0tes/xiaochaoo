@@ -60,17 +60,19 @@ public class LoginController{
 	public String checkLogin(User login, Model model, RedirectAttributes redirectAttributes) {
 		String returnPath = "/index";
 		User user = loginService.findList(login);
-		System.out.println("123123123123");
 		if(user!=null) {
 			if(user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
 				model.addAttribute("login", login);
+				System.out.println("登陆成功！");
 			}else {
 				returnPath = "/webPage/page/sys_page/index_login";
+				System.out.println("登陆失败！");
 				model.addAttribute("msg", "用户名或密码不正确！");
 				return returnPath;
 			}
 		}else {
 			returnPath = "/webPage/page/sys_page/index_login";
+			System.out.println("登陆失败！");
 			model.addAttribute("msg", "用户名不存在");
 			System.out.println("msg");
 			return returnPath;

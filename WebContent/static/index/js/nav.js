@@ -1,18 +1,18 @@
 var navs = [{
 	"title" : "后台首页",
 	"icon" : "icon-computer",
-	"href" : "webPage/page/main.jsp",
+	"href" : "webPage/page/sys_page/main.jsp",
 	"spread" : false
 },{
 	"title" : "文章列表",
 	"icon" : "icon-text",
-	"href" : "/xiaochaoo/path/news/findList",
+	"href" : "path/news/findList",
 //	"href" : "webPage/page/news/newsList.jsp",
 	"spread" : false
 },{
 	"title" : "友情链接",
 	"icon" : "icon-text",
-	"href" : "/xiaochaoo/path/links/findList",
+	"href" : "<%=basePath%>/xiaochaoo/path/links/findList",
 //	"href" : "webPage/page/links/linksList.jsp",
 	"spread" : false
 },{
@@ -23,7 +23,7 @@ var navs = [{
 },{
 	"title" : "系统基本参数",
 	"icon" : "&#xe631;",
-	"href" : "webPage/page/systemParameter/systemParameter.jsp",
+	"href" : "<%=basePath%>/webPage/page/systemParameter/systemParameter.jsp",
 	"spread" : false
 },{
 	"title" : "二级菜单演示",
