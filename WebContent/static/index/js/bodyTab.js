@@ -1,12 +1,9 @@
-/*	
- 	@Author: 请叫我马哥
-	@Time: 2017-04
-	@Tittle: tab
+/*
 	@Description: 点击对应按钮添加新窗口
 */
 var tabFilter,menu=[],liIndex,curNav,delMenu;
 layui.define(["element","jquery"],function(exports){
-	var element = layui.element,
+	var element = layui.element(),
 		$ = layui.jquery,
 		layId,
 		Tab = function(){
@@ -16,6 +13,7 @@ layui.define(["element","jquery"],function(exports){
 				tabFilter : "bodyTab"
 			}
 		};
+
 	//显示左侧菜单
 	if($(".navBar").html() == ''){
 		var _this = this;
@@ -113,9 +111,7 @@ layui.define(["element","jquery"],function(exports){
 	$("body").on("click",".top_tab li",function(){
 		//切换后获取当前窗口的内容
 		var curmenu = '';
-		var menu = JSON.parse(window.sessionStorage.getItem("menu"));  // 切换窗口时获取当前页面的内容，保存到sessionStorage中
-		console.info($(this).index());
-		console.info(window.sessionStorage.getItem("menu"));
+		var menu = JSON.parse(window.sessionStorage.getItem("menu"));
 		curmenu = menu[$(this).index()-1];
 		if($(this).index() == 0){
 			window.sessionStorage.setItem("curmenu",'');

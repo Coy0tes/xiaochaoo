@@ -1,9 +1,9 @@
 layui.config({
-	base : "/static/js/"
+	base : "js/"
 }).use(['form','element','layer','jquery'],function(){
-	var form = layui.form,
+	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
-		element = layui.element,
+		element = layui.element(),
 		$ = layui.jquery;
 
 	$(".panel a").on("click",function(){
@@ -11,7 +11,7 @@ layui.config({
 	})
 
 	//动态获取文章总数和待审核文章数量,最新文章
-	$.get("/xiaochaoo/static/json/newsList.json",
+	$.get("../json/newsList.json",
 		function(data){
 			var waitNews = [];
 			$(".allNews span").text(data.length);  //文章总数
@@ -26,7 +26,7 @@ layui.config({
 			var hotNewsHtml = '';
 			for(var i=0;i<5;i++){
 				hotNewsHtml += '<tr>'
-		    	+'<td align="left">'+data[i].title+'</td>'
+		    	+'<td align="left">'+data[i].newsName+'</td>'
 		    	+'<td>'+data[i].newsTime+'</td>'
 		    	+'</tr>';
 			}
@@ -35,21 +35,21 @@ layui.config({
 	)
 
 	//图片总数
-	$.get("/xiaochaoo/static/json/images.json",
+	$.get("../json/images.json",
 		function(data){
 			$(".imgAll span").text(data.length);
 		}
 	)
 
 	//用户数
-	$.get("/xiaochaoo/static/json/usersList.json",
+	$.get("../json/usersList.json",
 		function(data){
 			$(".userAll span").text(data.length);
 		}
 	)
 
 	//新消息
-	$.get("/xiaochaoo/static/json/message.json",
+	$.get("../json/message.json",
 		function(data){
 			$(".newMessage span").text(data.length);
 		}
@@ -67,7 +67,7 @@ layui.config({
 		fillParameter(systemParameter);
 	}else{
 		$.ajax({
-			url : "/xiaochaoo/static/json/systemParameter.json",
+			url : "../json/systemParameter.json",
 			type : "get",
 			dataType : "json",
 			success : function(data){

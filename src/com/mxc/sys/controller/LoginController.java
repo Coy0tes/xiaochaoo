@@ -58,12 +58,13 @@ public class LoginController{
      */
 	@RequestMapping(value= {"checkLogin",""})
 	public String checkLogin(User login, Model model, RedirectAttributes redirectAttributes) {
-		String returnPath = "/index";
+		String returnPath = "webPage/page/sys_page/index";
+//		String returnPath = "/index";
 		User user = loginService.findList(login);
 		if(user!=null) {
 			if(user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
-				model.addAttribute("login", login);
 				System.out.println("登陆成功！");
+				model.addAttribute("login", login);
 			}else {
 				returnPath = "/webPage/page/sys_page/index_login";
 				System.out.println("登陆失败！");

@@ -51,9 +51,9 @@
 							<input type="checkbox" value="None" id="checkbox1" name="check"/>
 							<label for="checkbox1"></label>
 						</div>
+						<button type="submit" onclick="doSubmit()" class="btn btn-default">立刻登录</button>
 						<span class="text">记住我</span>
 					</div>
-					<button type="submit" onclick="doSubmit()" class="btn btn-default">立刻登录</button>
 				</form>
 			</div>
 		</div>

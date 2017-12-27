@@ -1,14 +1,13 @@
-var tab;
-// 引入js文件接口
+var $,tab,skyconsWeather;
 layui.config({
-	base : "/static/index/js/" //你存放新模块的目录，注意，不是layui的模块目录
+	base : "js/"
 }).use(['bodyTab','form','element','layer','jquery'],function(){
-	alert();
-	var form = layui.form,
+	var form = layui.form(),
 		layer = layui.layer,
-		element = layui.element;
+		element = layui.element();
 		$ = layui.jquery;
 		tab = layui.bodyTab();
+
 	//锁屏
 	function lockPage(){
 		layer.open({
@@ -64,7 +63,7 @@ layui.config({
 		addTab($(this));
 		$(this).parent("li").siblings().removeClass("layui-nav-itemed");
 	})
-	
+
 	//公告层
 	function showNotice(){
 		layer.open({

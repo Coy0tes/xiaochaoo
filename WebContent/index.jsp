@@ -14,8 +14,8 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" href="<%=basePath%>/static/index/css/font_eolqem241z66flxr.css" media="all" />
-	<link rel="stylesheet" href="<%=basePath%>/static/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="<%=basePath%>/static/index/css/main.css" media="all" />
+	<link rel="stylesheet" href="<%=basePath%>/static/layui/css/layui.css" media="all" />
 	<script type="text/javascript" src="<%=basePath%>/static/layui/layui.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/static/index/js/leftNav.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/static/index/js/bodyTab.js"></script>
@@ -23,11 +23,10 @@
 	<script type="text/javascript" src="<%=basePath%>/static/index/js/nav.js"></script>
 	
 	<script type="text/javascript">
-		
 	</script>
 	
 </head>
-<body class="layui-layout-body">
+<body class="main_body">
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部 -->
 		<div class="layui-header header">
@@ -39,10 +38,10 @@
 						<a href="javascript:;"><i class="iconfont icon-gonggao"></i><cite>系统公告</cite></a>
 					</li>
 			    	<li class="layui-nav-item" mobile>
-			    		<a href="javascript:;" data-url="<%=basePath%>/webPage/page/user/changePwd.jsp"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
+			    		<a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
 			    	</li>
 			    	<li class="layui-nav-item" mobile>
-			    		<a href="#"><i class="iconfont icon-loginout"></i> 退出</a>
+			    		<a href="javascript:;"><i class="iconfont icon-loginout"></i> 退出</a>
 			    	</li>
 					<li class="layui-nav-item lockcms" pc>
 						<a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
@@ -50,12 +49,12 @@
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
 							<img src="<%=basePath%>/static/images/face.jpg" class="layui-circle" width="35" height="35">
-							<cite>${sessionScope.login.userName}</cite>
+							<cite>${sessionScope.login.userName }</cite>
 						</a>
 						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-url="webPage/page/user/userInfo.jsp"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
-							<dd><a href="javascript:;" data-url="webPage/page/user/changePwd.jsp"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-							<dd><a href="<%=basePath%>/login/outLogin"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
+							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
+							<dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -64,7 +63,7 @@
 		<!-- 左侧导航 -->
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
-				<a class="img" title="我的头像" ><img src="<%=basePath%>/static/images/face.jpg"></a>
+				<a class="img" title="我的头像" ><img src="images/face.jpg"></a>
 				<p>你好！<span class="userName">${sessionScope.login.userName}</span>, 欢迎登录</p>
 			</div>
 			<div class="navBar layui-side-scroll"></div>
@@ -77,13 +76,11 @@
 				</ul>
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show">
-						<iframe src="<%=basePath%>/webPage/page/sys_page/main.jsp"></iframe>
+						<iframe src="page/main.html"></iframe>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		
 		<!-- 底部 -->
 		<div class="layui-footer footer">
 			<p>copyright @2017 请叫我马哥 更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>　　<a onclick="donation()" class="layui-btn layui-btn-danger l·ayui-btn-small">捐赠作者</a></p>
@@ -92,7 +89,7 @@
 
 	<!-- 锁屏 -->
 	<div class="admin-header-lock" id="lock-box" style="display: none;">
-		<div class="admin-header-lock-img"><img src="<%=basePath%>/static/images/face.jpg"/></div>
+		<div class="admin-header-lock-img"><img src="images/face.jpg"/></div>
 		<div class="admin-header-lock-name" id="lockUserName">请叫我马哥</div>
 		<div class="input_btn">
 			<input type="password" class="admin-header-lock-input layui-input" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />
@@ -104,6 +101,6 @@
 	<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 	<div class="site-mobile-shade"></div>
 
-	
 </body>
+</html>
 </html>
